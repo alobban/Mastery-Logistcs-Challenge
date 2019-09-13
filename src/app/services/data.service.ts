@@ -7,9 +7,11 @@ import { Load } from '../type-definitions/load';
   providedIn: 'root'
 })
 export class DataService {
-  loads: Load[] = loads;
+  loads: Load[];
 
-  constructor() { }
+  constructor() {
+    this.loads = loads;
+  }
 
   getLoads(): Load[] {
     return this.loads;
