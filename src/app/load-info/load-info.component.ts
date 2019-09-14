@@ -29,6 +29,9 @@ export class LoadInfoComponent implements OnInit {
     this.loadForm.patchValue({
       status: this.data.load.status
     });
+    if (this.data.load.locked) {
+      this.loadForm.get('status').disable();
+    }
   }
 
   closeDialog(): void {
