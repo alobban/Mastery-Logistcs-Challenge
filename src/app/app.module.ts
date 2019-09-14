@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoadBoardComponent } from './load-board/load-board.component';
 import { MaterialModule } from './material.module';
+import { LoadInfoComponent } from './load-info/load-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoadBoardComponent
+    LoadBoardComponent,
+    LoadInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -19,6 +21,7 @@ import { MaterialModule } from './material.module';
     MaterialModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoadInfoComponent]
 })
 export class AppModule { }
