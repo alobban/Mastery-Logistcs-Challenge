@@ -1,1 +1,6 @@
-<p>load-board works!</p>
+<section>
+  <div class="board-item" *ngFor="let load of loads" (click)="openDetails(load)">
+    <div>{{ load.id }}</div>
+    <div>{{ load.locked }}</div>
+  </div>
+</section>
