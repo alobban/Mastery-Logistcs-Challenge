@@ -30,7 +30,17 @@ export class DataService {
       }
       return load;
     });
-    console.log('this is loadData post update', this.loadData);
+    this.getDataObservable();
+  }
+
+  lockLoad(lockedId: string) {
+    this.loadData = this.loadData.map(load => {
+      if (load.id === lockedId) {
+        load.locked = !load.locked;
+        return load;
+      }
+      return load;
+    });
     this.getDataObservable();
   }
 }

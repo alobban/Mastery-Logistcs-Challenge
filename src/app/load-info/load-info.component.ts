@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 import { Load } from '../type-definitions/load';
 
 @Component({
@@ -8,18 +10,29 @@ import { Load } from '../type-definitions/load';
   styleUrls: ['./load-info.component.scss']
 })
 export class LoadInfoComponent implements OnInit {
+  loadForm: FormGroup;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { load: Load },
-    public dialogRef: MatDialogRef<LoadInfoComponent>
-    ) { }
+    public dialogRef: MatDialogRef<LoadInfoComponent>,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
-    console.log(this.data.load);
+    this.loadForm = this.fb.group({
+      status: []
+    });
+    this.syncFormData();
+  }
+
+  syncFormData() {
+    this.loadForm.patchValue({
+      status: this.data.load.status
+    });
   }
 
   closeDialog(): void {
-    this.data.load.locked = !this.data.load.locked;
+    this.data.load.status = this.loadForm.get('status').value;
     this.dialogRef.close(this.data.load);
   }
 

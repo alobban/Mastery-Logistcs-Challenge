@@ -1,6 +1,29 @@
 <section>
-  <div class="board-item" *ngFor="let load of loads" (click)="openDetails(load)">
-    <div>{{ load.id }}</div>
-    <div>{{ load.locked }}</div>
+  <div class="lb-container">
+    <div class="board-item" fxLayout="column" *ngFor="let load of loads" (click)="openDetails(load)">
+      <div fxLayout="row" fxFlex="100" fxLayoutAlign="space-between center">
+        <div fxFlex="12">Origin</div>
+        <div fxFlex="12">Destination</div>
+        <div fxFlex="12">Status</div>
+        <div fxFlex="12">Date</div>
+        <div fxFlex="12">Equipment</div>
+        <div fxFlex="12">Value</div>
+        <div fxFlex="12">Locked</div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex="12">{{ load.origin }}</div>
+        <div fxFlex="12">{{ load.destination }}</div>
+        <div fxFlex="12">{{ load.status }}</div>
+        <div fxFlex="12">{{ load.date }}</div>
+        <div fxFlex="12">{{ load.equipment }}</div>
+        <div fxFlex="12">{{ load.value | currency }}</div>
+        <div fxFlex="12" *ngIf="load.locked">
+          <mat-icon>lock</mat-icon>
+        </div>
+        <div fxFlex="12" *ngIf="!load.locked">
+          <mat-icon>lock_open</mat-icon>
+        </div>
+      </div>
+    </div>
   </div>
 </section>

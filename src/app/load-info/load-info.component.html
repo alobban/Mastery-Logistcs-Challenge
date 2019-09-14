@@ -1,3 +1,42 @@
-<div>
-  <button type="button" mat-raised-button (click)="closeDialog()">Click</button>
-</div>
+<section>
+  <h2 mat-dialog-title>Load Details</h2>
+  <mat-dialog-content>
+    <article fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="column" fxFlex="30">
+        <div class="label">Origin</div>
+        <div class="display">{{ data.load.origin }}</div>
+      </div>
+      <div fxLayout="column" fxFlex="30">
+        <div class="label">Destination</div>
+        <div class="display">{{ data.load.destination }}</div>
+      </div>
+      <div fxLayout="column" fxFlex="30">
+        <div class="label">Date</div>
+        <div class="display">{{ data.load.date }}</div>
+      </div>
+    </article>
+    <article fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="column" fxFlex="30">
+        <div class="label">Value</div>
+        <div class="display">{{ data.load.value | currency }}</div>
+      </div>
+      <div fxLayout="column" fxFlex="30">
+        <div class="label">Equipment</div>
+        <div class="display">{{ data.load.equipment }}</div>
+      </div>
+      <div fxLayout="column" fxFlex="30">
+<!--        <div>Date</div>-->
+<!--        <div>{{ data.load.date }}</div>-->
+      </div>
+    </article>
+    <form [formGroup]="loadForm">
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <input matInput formControlName="status" type="text">
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayoutAlign="end">
+    <button type="submit" mat-raised-button color="primary" (click)="closeDialog()">Save</button>
+  </mat-dialog-actions>
+</section>
