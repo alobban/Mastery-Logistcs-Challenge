@@ -20,7 +20,6 @@ export class LoadBoardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.dataService.loadData);
     this.dataService.getLoads()
       .subscribe((loads: Load[]) => {
         this.loads = loads;

@@ -37,6 +37,7 @@
     </form>
   </mat-dialog-content>
   <mat-dialog-actions fxLayoutAlign="end">
-    <button type="submit" mat-raised-button color="primary" (click)="closeDialog()">Save</button>
+    <button type="button" mat-raised-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-raised-button color="primary" (click)="closeDialog()" [disabled]="data.load.locked">Save</button>
   </mat-dialog-actions>
 </section>
